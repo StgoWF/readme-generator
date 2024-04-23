@@ -1,11 +1,48 @@
 // index.js
 
-// Import the inquirer package
+// Import the inquirer and fs packages
 const inquirer = require('inquirer');
+const fs = require('fs');
+
+// Function to generate README content
+function generateReadme(answers) {
+    return `
+# ${answers.title}
+
+## Description
+${answers.description}
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+\`\`\`
+${answers.installation}
+\`\`\`
+
+## Usage
+${answers.usage}
+
+## Contributing
+${answers.contributing}
+
+## Tests
+\`\`\`
+${answers.tests}
+\`\`\`
+
+## Questions
+If you have any questions about the repo, open an issue or contact me directly at [${answers.email}](mailto:${answers.email}).
+You can find more of my work at [${answers.github}](https://github.com/${answers.github}/).
+`;
+}
 
 // Function to initialize the application
 function init() {
-    // Array of questions for user input
     const questions = [
         {
             type: 'input',
@@ -17,29 +54,46 @@ function init() {
             name: 'description',
             message: 'Provide a description of the project:',
         },
-        // You can add more questions here
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'Provide the installation instructions:',
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Provide the usage information:',
+        },
+        {
+            type: 'input',
+            name: 'contributing',
+            message: 'Provide the contributing guidelines:',
+        },
+        {
+            type: 'input',
+            name: 'tests',
+            message: 'Provide the test instructions:',
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'Enter your GitHub username:',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your email address:',
+        },
     ];
 
-    // Prompt the user for responses
     inquirer.prompt(questions).then((answers) => {
-        // Use user responses for something, like creating a README
-        console.log(answers);
-        // Here you would call a function to generate the README.md content using answers
+        const readmeContent = generateReadme(answers);
+        // Write the README file
+        fs.writeFile('README.md', readmeContent, (err) => {
+            if (err) throw err;
+            console.log('Successfully wrote README.md');
+        });
     });
-}
-
-// Function to generate README content
-function generateReadme(answers) {
-    // Here you will take the answers and generate the README content
-    // For now, it will just create a simple example
-    return `
-# ${answers.title}
-
-## Description
-${answers.description}
-
-// Add more content when you expand this function.
-`;
 }
 
 // Call the initialize function to start the application
