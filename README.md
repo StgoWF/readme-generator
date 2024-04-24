@@ -40,7 +40,7 @@ If you would like to contribute, please fork the repository and submit a pull re
 Run `npm test` to execute the test suite for this application.
 
 ## Questions
-For inquiries or issues, please open an issue or contact me via email at [insert-your-email-here@example.com](mailto:insert-your-email-here@example.com).
+For inquiries or issues, please open an issue or contact me via email at [insert-your-email-here@example.com](mailto:stgoweinsteinf@gmail.com).
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
