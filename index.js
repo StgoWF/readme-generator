@@ -4,10 +4,22 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+// Function to generate a license badge based on the user's choice
+function generateBadge(license) {
+    if (license !== 'None') {
+        // Convert to URL-friendly format
+        const formattedLicense = license.replace(/ /g, '_').replace(/\./g, '').toUpperCase();
+        return `![License](https://img.shields.io/badge/License-${formattedLicense}-yellow.svg)`;
+    } else {
+        return '';
+    }
+}
+
 // Function to generate README content
 function generateReadme(answers) {
     return `
 # ${answers.title}
+${generateBadge(answers.license)}
 
 ## Description
 ${answers.description}
@@ -15,6 +27,7 @@ ${answers.description}
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [License](#license)
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
@@ -26,6 +39,9 @@ ${answers.installation}
 
 ## Usage
 ${answers.usage}
+
+## License
+This project is licensed under the ${answers.license} license.
 
 ## Contributing
 ${answers.contributing}
@@ -75,6 +91,12 @@ function init() {
             message: 'Provide the test instructions:',
         },
         {
+            type: 'list',
+            name: 'license',
+            message: 'Choose a license for your project:',
+            choices: ['MIT', 'Apache 2.0', 'GPLv3', 'BSD 3-Clause', 'None'],
+        },
+        {
             type: 'input',
             name: 'github',
             message: 'Enter your GitHub username:',
@@ -88,7 +110,6 @@ function init() {
 
     inquirer.prompt(questions).then((answers) => {
         const readmeContent = generateReadme(answers);
-        // Write the README file
         fs.writeFile('README.md', readmeContent, (err) => {
             if (err) throw err;
             console.log('Successfully wrote README.md');
