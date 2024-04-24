@@ -9,10 +9,12 @@ This command-line application automates the creation of a professional README fi
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Features](#features)
-4. [Contributing](#contributing)
-5. [Tests](#tests)
-6. [Questions](#questions)
-7. [License](#license)
+4. [Repository](#repository)
+5. [Video Walkthrough](#video-walkthrough)
+6. [Contributing](#contributing)
+7. [Tests](#tests)
+8. [Questions](#questions)
+9. [License](#license)
 
 ## Installation
 To set up this project, clone the repository and then run `npm install` to install all the necessary dependencies.
@@ -24,6 +26,9 @@ Execute the command `node index.js` in your terminal, answer the prompts, and a 
 - Dynamic prompts for project details
 - Support for multiple license badges
 - Customizable sections for flexibility
+
+## Repository
+The code for this application can be found in [this GitHub repository](https://github.com/StgoWF/readme-generator).
 
 ## Video Walkthrough
 For a demonstration of the application's functionality, please watch this [video walkthrough](https://drive.google.com/file/d/1fDhlcjanjI9Ehivsg2OdYSlFFgdQ2mrf/view).
