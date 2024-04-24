@@ -25,6 +25,9 @@ Execute the command `node index.js` in your terminal, answer the prompts, and a 
 - Support for multiple license badges
 - Customizable sections for flexibility
 
+## Video Walkthrough
+For a demonstration of the application's functionality, please watch this [video walkthrough](https://drive.google.com/file/d/1fDhlcjanjI9Ehivsg2OdYSlFFgdQ2mrf/view).
+
 ## Contributing
 If you would like to contribute, please fork the repository and submit a pull request with your suggestions.
 
