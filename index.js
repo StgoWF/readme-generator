@@ -33,12 +33,11 @@ ${answers.description}
 - [Questions](#questions)
 
 ## Installation
-\`\`\`
 ${answers.installation}
-\`\`\`
 
 ## Usage
 ${answers.usage}
+
 
 ## License
 This project is licensed under the ${answers.license} license.
@@ -47,15 +46,15 @@ This project is licensed under the ${answers.license} license.
 ${answers.contributing}
 
 ## Tests
-\`\`\`
 ${answers.tests}
-\`\`\`
+
 
 ## Questions
 If you have any questions about the repo, open an issue or contact me directly at [${answers.email}](mailto:${answers.email}).
 You can find more of my work at [${answers.github}](https://github.com/${answers.github}/).
-`;
+    `.trim();
 }
+
 
 // Function to initialize the application
 function init() {
@@ -80,6 +79,8 @@ function init() {
             name: 'usage',
             message: 'Provide the usage information:',
         },
+
+
         {
             type: 'input',
             name: 'contributing',
